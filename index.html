@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Escapar HTML para JSON</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+            font-family: monospace;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Escapar HTML para JSON</h2>
+    <label for="input">HTML de entrada:</label><br>
+    <textarea id="input" placeholder="Pega tu código HTML aquí..."></textarea><br>
+
+    <button onclick="escapeHTML()">Escapar</button><br>
+
+    <label for="output">Resultado para JSON:</label><br>
+    <textarea id="output" readonly placeholder="Aquí aparecerá el HTML escapado..."></textarea>
+
+    <script>
+        function escapeHTML() {
+            const input = document.getElementById('input').value;
+            const escaped = JSON.stringify(input.replace(/\n/g, '').trim());
+            document.getElementById('output').value = escaped;
+        }
+    </script>
+
+</body>
+
+</html>
